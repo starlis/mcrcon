@@ -568,6 +568,7 @@ void packet_print(rc_packet *packet)
     if(print_colors == 1) {
 
         for(i = 0; (unsigned char) packet->data[i] != 0; ++i) {
+            if((unsigned char) packet->data[i] == 194) { continue; } // EMC
             if((unsigned char) packet->data[i] == 0xa7) {
                 ++i;
                 print_color(packet->data[i]);
